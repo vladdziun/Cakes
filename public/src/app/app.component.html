@@ -1,0 +1,40 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="display: inline-block">
+  <h1>
+    Rate my cakes
+  </h1>
+  <!-- <p> {{ cakes | json }} </p> -->
+  <form (submit)="submitNewCake()" class="postForm">
+    <p> {{ updatedCake | json }} </p>
+    <p>Baker name:</p>
+    <input type="text" name="newCake.name" [(ngModel)]="newCake.name"><br>
+    <p>Image url:</p>
+    <input type="text" name="newCake.url" [(ngModel)]="newCake.url"><br><br>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+<div style="float:right; float:top; height:400px; overflow: scroll;
+overflow-x: hidden;">
+  <div *ngFor="let c of cakes">
+    <img (click)="cakeToShow(c)" style="width: 250px; height: 250px;" src="{{c.url}}" alt="{{c.url}}">
+    <form (submit)="rateCake(c._id, c.name, c.url)" class="postForm">
+      <select name="rating" [(ngModel)]= "rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <br><br>
+      <textarea name="comment" [(ngModel)]= "comment">
+      </textarea>
+      <br>
+      <input type="submit">
+    </form>
+  </div>
+  <br>
+</div>
+<app-cake *ngIf="selectedCake" [cakeToShow] = "selectedCake"></app-cake>
+
+<router-outlet></router-outlet>
