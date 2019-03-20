@@ -1,0 +1,12 @@
+  <h2>Favorite authors</h2>
+  <button [routerLink]="['/']">Home</button>
+  <p>Edit this author</p>
+  <div>
+    <p>Name</p>
+
+    <form (submit)="updateAuthor(id, updatedAuthor.name)" class="postForm">
+    <input type="text" name="updatedAuthor.name" [(ngModel)]="updatedAuthor.name">
+    <button>Submit</button>
+  </form>
+    <button>Cancel</button> 
+  </div>

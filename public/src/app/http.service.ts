@@ -5,22 +5,20 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
   constructor(private _http: HttpClient) {
   }
-  getCakes() {
-    return this._http.get('/api/cakes');
-  }
-  getOneCake(id){
-    return this._http.get(`/api/cakes/${id}`);
-  }
-  addCake(newCake){
-    return this._http.post(`/api/cakes`, newCake);
-  }
-  deleteCake(id)
-  {
-    return this._http.delete(`/api/cakes/${id}`);
-  }
-  updateCake(id, updatedCake)
-  {
-    return this._http.put(`/api/cakes/${id}`, updatedCake);
-  }
 
+  getAuthors(){
+    return this._http.get('/api/authors');
+  }
+  getAuthor(id){
+    return this._http.get(`/api/authors/${id}`)
+  }
+  addAuthor(newAuthor){
+    return this._http.post('/api/authors', newAuthor);
+  }
+  deleteAuthor(id){
+    return this._http.delete(`/api/authors/${id}`);
+  }
+  updateAuthor(id, updatedAuthor){
+    return this._http.put(`/api/authors/${id}`, updatedAuthor);
+  }
 }

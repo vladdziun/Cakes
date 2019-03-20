@@ -1,0 +1,12 @@
+<h2>Favorite authors</h2>
+<button [routerLink]="['/']">Home</button>
+<p>Add a new author</p>
+<div>
+  <p>Name</p>
+  <p> {{ newAuthor | json }} </p>
+  <form (submit)="addAuthor()" class="postForm">
+  <input type="text" name="newAuthor.name" [(ngModel)]="newAuthor.name">
+  <button>Submit</button>
+</form>
+  <button>Cancel</button> 
+</div>

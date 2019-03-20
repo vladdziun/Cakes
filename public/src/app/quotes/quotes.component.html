@@ -1,0 +1,10 @@
+<h2>Favorite authors</h2>
+<button [routerLink]="['/']">Home</button>
+<button [routerLink]="['/write/',id]">Add a quote</button>
+<p>Quotes by </p>
+<div *ngFor = "let q of quotes.entries()">
+<p>{{quotes[q[0]].title}} {{quotes[q[0]].votes}}</p>
+<button (click) = "rankUpQuote(q[0])">Vote up</button>
+<button (click) = "rankDownQuote(q[0])">Vote down</button>
+<button (click)="deleteQuote(q[0])">Delete</button>
+ </div>

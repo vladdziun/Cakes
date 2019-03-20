@@ -1,0 +1,10 @@
+<div class = "container">
+  <h2>Favorite authors</h2>
+  <button [routerLink]="['/new']">Add a new author</button>
+  <p>We have quotes by:</p>
+  <div *ngFor = "let a of authors">
+    <p>{{a.name}}</p>
+    <button [routerLink]="['/quotes/',a._id]">Quotes</button>
+    <button [routerLink]="['/edit/',a._id]">Edit</button>
+    <button (click) = "deleteAuthor(a._id)">Delete</button>
+  </div>

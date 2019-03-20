@@ -1,0 +1,11 @@
+<h2>Favorite authors</h2>
+<button [routerLink]="['/']">Home</button>
+<p>Add a quote by {{author.name}}:</p>
+<div>
+  <p>{{title | json}}</p>
+  <form>
+    <input type="text" name="title" [(ngModel)]="title">
+    <button (click)="addQuote()">Submit</button>
+  </form>
+  <button>Cancel</button>
+</div>
